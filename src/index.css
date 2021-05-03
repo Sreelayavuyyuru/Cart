@@ -7,15 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.title {
-  height: 60px;
-  border-bottom: 1px solid #E1E8EE;
-  padding: 20px 30px;
-  color: #5E6977;
-  font-size: 18px;
-  font-weight: 400;
-}
-
 .cart-item {
   padding: 20px 30px;
   height: 120px;
@@ -23,7 +14,9 @@ body {
 }
 
 .cart-item .right-block{
-  padding: 0 20px
+  padding-left: 40px;
+  padding-bottom: 20px;
+  padding-right: 40px;
 }
 
 .action-icons{
