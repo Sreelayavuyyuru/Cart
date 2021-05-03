@@ -7,7 +7,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.title {
+  height: 60px;
+  border-bottom: 1px solid #E1E8EE;
+  padding: 20px 30px;
+  color: #5E6977;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.cart-item {
+  padding: 20px 30px;
+  height: 120px;
+  display: flex;
+}
+
+.cart-item .right-block{
+  padding: 0 20px
+}
+
+.action-icons{
+  height: 25px;
+  width: 25px;
+  margin-right: 10px;
+}
+
+.action-icons:hover{
+  cursor:pointer;
 }
