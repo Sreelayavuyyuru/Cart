@@ -15,8 +15,12 @@ body {
 
 .cart-item .right-block{
   padding-left: 40px;
+  padding-top: 20px;
   padding-bottom: 20px;
-  padding-right: 40px;
+}
+
+.cart-item-actions{
+  padding: 40px;
 }
 
 .action-icons{
