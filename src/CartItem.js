@@ -14,8 +14,13 @@ class CartItem extends React.Component {
   }
 
   decreaseQuantity = () => {
+    const { qty } = this.state;
+    if(qty==0) {
+      window.alert("Cannot decrease below 0")
+    };
     this.setState({
-      qty: this.state.qty - 1
+      qty: this.state.qty - 1,
+      // price: this.state.price * this.state.qty
     })
     
     // OR
@@ -31,22 +36,44 @@ class CartItem extends React.Component {
     //setState form 1 - by giving it an object
     
     //form 1
-    
-    this.setState({
-    qty: this.state.qty + 1
-    }) 
+    // this.setState({
+    //   qty: this.state.qty + 1,
+    //   // price: this.state.price * this.state.qty
+    // }) 
 
     // form 2 - by passing an object in the setState function
     // This should be used when the previous state of the function in required
-    // this.setState((prevState) => {
-    //   return{
-    //     qty: prevState.qty+1
-    //   }
-    // })
-    console.log('this.state', this.state);
+    this.setState((prevState) => {
+      return{
+        qty: prevState.qty+1
+      }
+    }, () => {
+      console.log("this.state", this.state)
+    })
+    // console.log('this.state', this.state);
+
+
+    // Batching: Any times the same function is called, the function is called only once.
+    // Even though 2 more setState functions are added to the increaseQuantity event handler, it will be rendered only once.
+    // It will take the last call of the function. That fucntion will only be called
+    // this.setState({
+    //   qty: this.state.qty + 2,
+      
+    // }) 
+    // this.setState({
+    //   qty: this.state.qty + 5,
+      
+    // }) 
+    // If the last function is not commented, it will be called since it is the last setState function, which means the state will be increased by 5
+
+
+
+    // In the form 2: If there are the same setState fucntions n number of times, they will be passed into a queue and be called (Since the prevState is included in the setState function)
+    // React will be performing batching but the function is called n nummber of times
   }
 
   render() {
+    // console.log('render')
     const { price, title, qty } = this.state;
     return (
       <div className="cart-item">
