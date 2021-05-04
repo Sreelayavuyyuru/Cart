@@ -9,10 +9,41 @@ class CartItem extends React.Component {
       qty: 1,
       img: "",
     };
+    // this.increaseQuantity = this.increaseQuantity.bind(this);
+    // = () => is the arrow function that is the alternative to using bind everytime to bind a function
+  }
+
+  decreaseQuantity = () => {
+    this.setState({
+      qty: this.state.qty - 1
+    })
+    
+    // OR
+    // this.setState((prevState) => {
+    //     return{
+    //       qty: prevState.qty-1
+    //     }
+    //   })
   }
 
   increaseQuantity = () => {
-      console.log('this.state', this.state);
+    // this.state.qty+=1;
+    //setState form 1 - by giving it an object
+    
+    //form 1
+    
+    this.setState({
+    qty: this.state.qty + 1
+    }) 
+
+    // form 2 - by passing an object in the setState function
+    // This should be used when the previous state of the function in required
+    // this.setState((prevState) => {
+    //   return{
+    //     qty: prevState.qty+1
+    //   }
+    // })
+    console.log('this.state', this.state);
   }
 
   render() {
@@ -39,6 +70,7 @@ class CartItem extends React.Component {
             alt=""
             className="action-icons"
             src="https://www.flaticon.com/svg/vstatic/svg/1665/1665612.svg?token=exp=1620038587~hmac=b91fdd597ddd07efdb53da4c25c57d9b"
+            onClick={this.decreaseQuantity}          
           ></img>
           <img
             alt=""
